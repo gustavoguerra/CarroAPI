@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarroAPI.Repository", "Carr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarroAPI.Business", "CarroAPI.Business\CarroAPI.Business.csproj", "{D35B39F4-32B1-4C35-8ADA-ED2EA1B54998}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarroAPI.Service", "CarroAPI.Service\CarroAPI.Service.csproj", "{D2C2B2DA-3656-45AB-BD27-2CA4228E3413}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarroAPI.Service", "CarroAPI.Service\CarroAPI.Service.csproj", "{D2C2B2DA-3656-45AB-BD27-2CA4228E3413}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarroAPI.Teste", "CarroAPI.Teste\CarroAPI.Teste.csproj", "{5AB1E51A-6816-465F-8B2C-613630F024F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{D2C2B2DA-3656-45AB-BD27-2CA4228E3413}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2C2B2DA-3656-45AB-BD27-2CA4228E3413}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2C2B2DA-3656-45AB-BD27-2CA4228E3413}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AB1E51A-6816-465F-8B2C-613630F024F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AB1E51A-6816-465F-8B2C-613630F024F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AB1E51A-6816-465F-8B2C-613630F024F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AB1E51A-6816-465F-8B2C-613630F024F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

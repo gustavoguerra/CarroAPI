@@ -30,19 +30,18 @@ namespace CarroAPI.Controllers
 
         // GET api/values/5
         [HttpGet("{marca}")]
-        public ActionResult<List<Carro>> Get(string marca)
+        public ActionResult<IEnumerable<Carro>> Get(string marca)
         {
             var carro = _carroservices.GetbyMarca(marca);
 
-
-            return carro;
+            return carro.ToList();
         }
 
         // POST api/values
         [HttpPost]
         public void Post([FromBody] Carro value)
         {
-            _carroservices.save(value);
+          //  _carroservices.save(value);
 
         }
 

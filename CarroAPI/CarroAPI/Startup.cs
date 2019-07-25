@@ -25,26 +25,28 @@ namespace CarroAPI
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped(typeof(CarroServices));
-            services.AddScoped(typeof(CarroBusiness));
-            services.AddScoped(typeof(Carro));
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            DependencyInjection(services);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
         }
 
-        //public void DependencyInjection(IServiceCollection services)
-        //{
-        //    services.AddTransient<CarroServices>();
-        //    services.AddTransient<CarroBusiness>();
-        //    services.AddSingleton<IRepository<Carro>, Repository<Carro>>();
-        //}
+        public void DependencyInjection(IServiceCollection services)
+        {
+            // Mantem na memoria todo o tempo da requisição <Gasta mais memoria porem mais rapido>
+            //services.AddSingleton<IRepository<Carro>, Repository<Carro>>();
+            //services.AddScoped<CarroServices>();
+            //services.AddScoped<CarroBusiness>();
+            //services.AddScoped<Carro>();
+            
+            // Cria uma nova a cada requisição <Economisa memoria porem mais lento>
+            services.AddSingleton<IRepository<Carro>, Repository<Carro>>();
+            services.AddTransient<CarroServices>();
+            services.AddTransient<CarroBusiness>();
+            services.AddTransient<Carro>();
+        }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

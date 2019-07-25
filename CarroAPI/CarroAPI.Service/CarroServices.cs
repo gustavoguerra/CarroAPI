@@ -23,9 +23,10 @@ namespace CarroAPI.Service
             _carroBusiness.save(carro);
         }
 
-        public List<Carro> GetbyMarca(string marca)
+        public IEnumerable<Carro> GetbyMarca(string marca)
         {
-            var carro = _carrorepository.find(x => x.Marca == marca);
+            // var carro = _carrorepository.find(x => x.Marca == marca);
+            var carro = _carroBusiness.Getall();
 
             return carro;
         }

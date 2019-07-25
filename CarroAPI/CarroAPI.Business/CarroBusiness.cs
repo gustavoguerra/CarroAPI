@@ -1,6 +1,7 @@
 ﻿using CarroAPI.Domain;
 using CarroAPI.Repository;
 using System;
+using System.Collections.Generic;
 
 namespace CarroAPI.Business
 {
@@ -17,5 +18,13 @@ namespace CarroAPI.Business
         {
             _carrorepository.Save(carro);
         }
+
+        public IEnumerable<Carro> Getall()
+        {
+            var table = "Carro";
+            var getall = _carrorepository.GetbyMarca($"select * from {table}");
+
+            return getall;
+        }        
     }
 }

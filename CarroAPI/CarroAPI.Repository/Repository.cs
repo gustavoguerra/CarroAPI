@@ -1,43 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Dapper;
+
 
 namespace CarroAPI.Repository
 {
     public class Repository<TEntity> : IRepository<TEntity>
     {
-        private static List<TEntity> _data;
-
-        private static object _sincobject = new object();
-
-        public Repository()
+         public IEnumerable<TEntity> GetbyMarca(string marca)
         {
-            if(_data == null)
-            {
-                lock(_sincobject)
-                {
-                    if(_data == null)
-                    {
-                        _data = new List<TEntity>();
-                    }
-                }
-            }
+            var conn = Utilities.ConnectionFactory.GetConnection();
+
+            var result = conn.Query<TEntity>(marca);
+
+            var res = conn.Query<TEntity>("insert");
+
+            return result;
         }
 
+        public void Save(TEntity entity, string query)
+        {
+           
+        }
 
-        public IEnumerable<TEntity> GetbyMarca(string marca)
+        public List<TEntity> find(Func<TEntity, bool> predicate)
         {
             return null;
         }
 
         public void Save(TEntity entity)
         {
-            _data.Add(entity);
-        }
-
-        public List<TEntity> find(Func<TEntity, bool> predicate)
-        {
-            return _data.Where(predicate).ToList();
+            throw new NotImplementedException();
         }
     }
 }

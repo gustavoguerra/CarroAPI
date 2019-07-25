@@ -11,5 +11,7 @@ namespace CarroAPI.Repository
         void Save(TEntity entity);
 
         List<TEntity> find(Func<TEntity,bool> predicate);
+
+        
     }
 }
